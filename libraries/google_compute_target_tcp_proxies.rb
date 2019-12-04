@@ -23,6 +23,7 @@ class ComputeTargetTcpProxys < GcpResourceBase
 
   filter_table_config = FilterTable.create
 
+  filter_table_config.add(:ids, field: :id)
   filter_table_config.add(:creation_timestamps, field: :creation_timestamp)
   filter_table_config.add(:descriptions, field: :description)
   filter_table_config.add(:ids, field: :id)
@@ -68,6 +69,7 @@ class ComputeTargetTcpProxys < GcpResourceBase
 
   def transformers
     {
+      'id' => ->(obj) { return :id, obj['id'] },
       'creationTimestamp' => ->(obj) { return :creation_timestamp, parse_time_string(obj['creationTimestamp']) },
       'description' => ->(obj) { return :description, obj['description'] },
       'id' => ->(obj) { return :id, obj['id'] },

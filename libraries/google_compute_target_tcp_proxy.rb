@@ -22,6 +22,7 @@ class ComputeTargetTcpProxy < GcpResourceBase
   supports platform: 'gcp'
 
   attr_reader :params
+  attr_reader :id
   attr_reader :creation_timestamp
   attr_reader :description
   attr_reader :id
@@ -37,6 +38,7 @@ class ComputeTargetTcpProxy < GcpResourceBase
   end
 
   def parse
+    @id = @fetched['id']
     @creation_timestamp = parse_time_string(@fetched['creationTimestamp'])
     @description = @fetched['description']
     @id = @fetched['id']

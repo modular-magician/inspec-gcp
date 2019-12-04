@@ -23,6 +23,8 @@ end
 Properties that can be accessed from the `google_compute_target_tcp_proxy` resource:
 
 
+  * `id`: The unique identifier for the resource.
+
   * `creation_timestamp`: Creation timestamp in RFC3339 text format.
 
   * `description`: An optional description of this resource.

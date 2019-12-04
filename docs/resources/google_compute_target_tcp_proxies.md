@@ -18,6 +18,7 @@ end
 Properties that can be accessed from the `google_compute_target_tcp_proxies` resource:
 
 See [google_compute_target_tcp_proxy.md](google_compute_target_tcp_proxy.md) for more detailed information
+  * `ids`: an array of `google_compute_target_tcp_proxy` id
   * `creation_timestamps`: an array of `google_compute_target_tcp_proxy` creation_timestamp
   * `descriptions`: an array of `google_compute_target_tcp_proxy` description
   * `ids`: an array of `google_compute_target_tcp_proxy` id
