@@ -26,7 +26,6 @@ class SourceRepoRepositorys < GcpResourceBase
   filter_table_config.add(:names, field: :name)
   filter_table_config.add(:urls, field: :url)
   filter_table_config.add(:sizes, field: :size)
-  filter_table_config.add(:pubsub_configs, field: :pubsub_configs)
 
   filter_table_config.connect(self, :table)
 
@@ -69,7 +68,6 @@ class SourceRepoRepositorys < GcpResourceBase
       'name' => ->(obj) { return :name, obj['name'] },
       'url' => ->(obj) { return :url, obj['url'] },
       'size' => ->(obj) { return :size, obj['size'] },
-      'pubsubConfigs' => ->(obj) { return :pubsub_configs, obj['pubsubConfigs'] },
     }
   end
 
