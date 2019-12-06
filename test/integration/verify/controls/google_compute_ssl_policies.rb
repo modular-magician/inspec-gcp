@@ -30,7 +30,7 @@ control 'google_compute_ssl_policies-1.0' do
     it { should exist }
     its('names') { should include ssl_policy['name'] }
     its('profiles') { should include ssl_policy['profile'] }
-    its('count') { should eq 1 }
+    its('count') { should be >= 1 }
   end
 
   google_compute_ssl_policies(project: gcp_project_id).names.each do |policy_name|

@@ -12,7 +12,7 @@ describe google_compute_ssl_policies(project: 'chef-gcp-inspec') do
   it { should exist }
   its('names') { should include 'inspec-gcp-ssl-policy' }
   its('profiles') { should include 'CUSTOM' }
-  its('count') { should eq 1 }
+  its('count') { should be >= 1 }
 end
 
 google_compute_ssl_policies(project: 'chef-gcp-inspec').names.each do |policy_name|
