@@ -35,6 +35,10 @@ Properties that can be accessed from the `google_compute_global_forwarding_rule`
 
   * `ip_version`: The IP Version that will be used by this global forwarding rule. Valid options are IPV4 or IPV6.
 
+  * `labels`: (Beta only) Labels to apply to this forwarding rule.  A list of key->value pairs.
+
+  * `label_fingerprint`: (Beta only) The fingerprint used for optimistic locking of this resource.  Used internally during updates.
+
   * `load_balancing_scheme`: This signifies what the GlobalForwardingRule will be used for. The value of INTERNAL_SELF_MANAGED means that this will be used for Internal Global HTTP(S) LB. The value of EXTERNAL means that this will be used for External Global Load Balancing (HTTP(S) LB, External TCP/UDP LB, SSL Proxy)  NOTE: Currently global forwarding rules cannot be used for INTERNAL load balancing.
 
   * `metadata_filters`: Opaque filter criteria used by Loadbalancer to restrict routing configuration to a limited set xDS compliant clients. In their xDS requests to Loadbalancer, xDS clients present node metadata. If a match takes place, the relevant routing configuration is made available to those proxies.  For each metadataFilter in this list, if its filterMatchCriteria is set to MATCH_ANY, at least one of the filterLabels must match the corresponding label provided in the metadata. If its filterMatchCriteria is set to MATCH_ALL, then all of its filterLabels must match with corresponding labels in the provided metadata.  metadataFilters specified here can be overridden by those specified in the UrlMap that this ForwardingRule references.  metadataFilters only applies to Loadbalancers that have their loadBalancingScheme set to INTERNAL_SELF_MANAGED.

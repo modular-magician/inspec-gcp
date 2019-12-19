@@ -82,7 +82,7 @@ class ServiceUsageServices < GcpResourceBase
 
   private
 
-  def product_url
+  def product_url(_)
     'https://serviceusage.googleapis.com/v1/'
   end
 

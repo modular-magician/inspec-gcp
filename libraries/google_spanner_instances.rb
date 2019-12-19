@@ -82,7 +82,7 @@ class SpannerInstances < GcpResourceBase
 
   private
 
-  def product_url
+  def product_url(_)
     'https://spanner.googleapis.com/v1/'
   end
 
