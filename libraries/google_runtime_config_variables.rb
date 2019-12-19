@@ -80,7 +80,7 @@ class RuntimeConfigVariables < GcpResourceBase
 
   private
 
-  def product_url
+  def product_url(_)
     'https://runtimeconfig.googleapis.com/v1beta1/'
   end
 

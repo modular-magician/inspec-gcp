@@ -24,6 +24,7 @@ See [google_compute_node_template.md](google_compute_node_template.md) for more 
   * `node_affinity_labels`: an array of `google_compute_node_template` node_affinity_labels
   * `node_types`: an array of `google_compute_node_template` node_type
   * `node_type_flexibilities`: an array of `google_compute_node_template` node_type_flexibility
+  * `server_bindings`: (Beta only) an array of `google_compute_node_template` server_binding
   * `regions`: an array of `google_compute_node_template` region
 
 ## Filter Criteria

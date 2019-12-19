@@ -24,6 +24,8 @@ See [google_compute_global_forwarding_rule.md](google_compute_global_forwarding_
   * `ip_addresses`: an array of `google_compute_global_forwarding_rule` ip_address
   * `ip_protocols`: an array of `google_compute_global_forwarding_rule` ip_protocol
   * `ip_versions`: an array of `google_compute_global_forwarding_rule` ip_version
+  * `labels`: (Beta only) an array of `google_compute_global_forwarding_rule` labels
+  * `label_fingerprints`: (Beta only) an array of `google_compute_global_forwarding_rule` label_fingerprint
   * `load_balancing_schemes`: an array of `google_compute_global_forwarding_rule` load_balancing_scheme
   * `metadata_filters`: an array of `google_compute_global_forwarding_rule` metadata_filters
   * `names`: an array of `google_compute_global_forwarding_rule` name
