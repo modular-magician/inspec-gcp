@@ -84,7 +84,7 @@ class LoggingOrganizationLogSinks < GcpResourceBase
 
   private
 
-  def product_url
+  def product_url(_)
     'https://logging.googleapis.com/v2/'
   end
 
