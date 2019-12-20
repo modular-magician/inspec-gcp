@@ -82,7 +82,7 @@ class AppEngineStandardAppVersions < GcpResourceBase
 
   private
 
-  def product_url
+  def product_url(_)
     'https://appengine.googleapis.com/v1/'
   end
 
