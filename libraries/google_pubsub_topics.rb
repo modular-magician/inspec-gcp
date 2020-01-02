@@ -80,7 +80,7 @@ class PubsubTopics < GcpResourceBase
 
   private
 
-  def product_url
+  def product_url(_ = nil)
     'https://pubsub.googleapis.com/v1/'
   end
 
