@@ -8,7 +8,7 @@ A `google_container_node_pools` is used to test a Google NodePool resource
 
 ## Examples
 ```
-describe google_container_node_pools(project: 'chef-gcp-inspec', location: 'europe-west2-a', cluster: 'gcp-inspec-kube-cluster') do
+describe google_container_node_pools(project: 'chef-gcp-inspec', location: 'europe-west2-a', cluster_name: 'gcp-inspec-kube-cluster') do
   its('initial_node_counts') { should include '1'}
 end
 ```

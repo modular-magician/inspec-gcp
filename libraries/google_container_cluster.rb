@@ -131,7 +131,7 @@ class ContainerCluster < GcpResourceBase
   end
 
   def to_s
-    "Cluster #{@params[:name]}"
+    "Cluster #{@params[:clusterName]}"
   end
 
   def has_logging_enabled?
@@ -218,6 +218,6 @@ class ContainerCluster < GcpResourceBase
   end
 
   def resource_base_url
-    'projects/{{project}}/locations/{{location}}/clusters/{{name}}'
+    'projects/{{project}}/locations/{{location}}/clusters/{{cluster_name}}'
   end
 end

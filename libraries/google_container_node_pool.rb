@@ -87,6 +87,6 @@ class ContainerNodePool < GcpResourceBase
   end
 
   def resource_base_url
-    'projects/{{project}}/locations/{{location}}/clusters/{{cluster}}/nodePools/{{name}}'
+    'projects/{{project}}/locations/{{location}}/clusters/{{cluster_name}}/nodePools/{{name}}'
   end
 end

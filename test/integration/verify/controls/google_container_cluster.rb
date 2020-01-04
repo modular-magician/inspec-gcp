@@ -25,14 +25,14 @@ control 'google_container_cluster-1.0' do
   impact 1.0
   title 'google_container_cluster resource test'
 
-  describe google_container_cluster(project: gcp_project_id, location: gcp_kube_cluster_zone, name: gcp_kube_cluster_name) do
+  describe google_container_cluster(project: gcp_project_id, location: gcp_kube_cluster_zone, cluster_name: gcp_kube_cluster_name) do
     it { should exist }
     its('locations.sort'){ should cmp [ gcp_kube_cluster_zone, gcp_kube_cluster_zone_extra1, gcp_kube_cluster_zone_extra2 ].sort }
 
     its('master_auth.username') { should eq gcp_kube_cluster_master_user }
   end
 
-  describe google_container_cluster(project: gcp_project_id, location: gcp_kube_cluster_zone, name: 'nonexistent') do
+  describe google_container_cluster(project: gcp_project_id, location: gcp_kube_cluster_zone, cluster_name: 'nonexistent') do
     it { should_not exist }
   end
 end

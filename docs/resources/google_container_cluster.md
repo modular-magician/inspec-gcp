@@ -8,14 +8,14 @@ A `google_container_cluster` is used to test a Google Cluster resource
 
 ## Examples
 ```
-describe google_container_cluster(project: 'chef-gcp-inspec', location: 'europe-west2-a', name: 'gcp-inspec-kube-cluster') do
+describe google_container_cluster(project: 'chef-gcp-inspec', location: 'europe-west2-a', cluster_name: 'gcp-inspec-kube-cluster') do
   it { should exist }
   its('locations.sort'){ should cmp [ 'europe-west2-a', 'europe-west2-b', 'europe-west2-c' ].sort }
 
   its('master_auth.username') { should eq 'gcp-inspec-kube-admin' }
 end
 
-describe google_container_cluster(project: 'chef-gcp-inspec', location: 'europe-west2-a', name: 'nonexistent') do
+describe google_container_cluster(project: 'chef-gcp-inspec', location: 'europe-west2-a', cluster_name: 'nonexistent') do
   it { should_not exist }
 end
 ```
