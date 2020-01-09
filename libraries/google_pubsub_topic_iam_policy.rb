@@ -47,6 +47,14 @@ class TopicIamPolicy < GcpResourceBase
     "Topic IamPolicy #{@params[:name]}"
   end
 
+  def iam_binding_roles
+    @bindings.map { |binding| binding.role }
+  end
+
+  def count
+    @bindings.size
+  end
+
   private
 
   def product_url

@@ -17,10 +17,10 @@ require 'gcp_backend'
 require 'google/iam/property/iam_policy_audit_configs'
 require 'google/iam/property/iam_policy_bindings'
 
-# A provider to manage Resource Manager IAM Policy resources.
-class ProjectIamPolicy < GcpResourceBase
-  name 'google_resourcemanager_project_iam_policy'
-  desc 'Project Iam Policy'
+# A provider to manage Cloud KMS IAM Policy resources.
+class CryptoKeyIamPolicy < GcpResourceBase
+  name 'google_kms_crypto_key_iam_policy'
+  desc 'CryptoKey Iam Policy'
   supports platform: 'gcp'
 
   attr_reader :params
@@ -30,7 +30,7 @@ class ProjectIamPolicy < GcpResourceBase
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
     @params = params
-    @fetched = @connection.fetch(product_url, resource_base_url, params, 'Post')
+    @fetched = @connection.fetch(product_url, resource_base_url, params, 'Get')
     parse unless @fetched.nil?
   end
 
@@ -44,7 +44,7 @@ class ProjectIamPolicy < GcpResourceBase
   end
 
   def to_s
-    "Project IamPolicy #{@params[:project_id]}"
+    "CryptoKey IamPolicy #{@params[:crypto_key_name]}"
   end
 
   def iam_binding_roles
@@ -58,10 +58,10 @@ class ProjectIamPolicy < GcpResourceBase
   private
 
   def product_url
-    'https://cloudresourcemanager.googleapis.com/v1/'
+    'https://cloudkms.googleapis.com/v1/'
   end
 
   def resource_base_url
-    'projects/{{project_id}}:getIamPolicy'
+    'projects/{{project}}/locations/{{location}}/keyRings/{{key_ring_name}}/cryptoKeys/{{crypto_key_name}}:getIamPolicy'
   end
 end
