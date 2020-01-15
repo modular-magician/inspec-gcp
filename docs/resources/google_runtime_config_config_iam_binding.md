@@ -8,7 +8,7 @@ A `google_runtime_config_config_iam_binding` is used to test a Google Config Iam
 
 ## Examples
 ```
-describe google_runtime_config_config_iam_binding(project: "project", name: "name", role: "roles/editor") do
+describe google_runtime_config_config_iam_binding(["project", "name"], role: "roles/editor") do
   it { should exist }
   its('members') { should include 'user:testuser@example.com' }
 end

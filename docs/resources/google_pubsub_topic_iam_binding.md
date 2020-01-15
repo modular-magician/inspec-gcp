@@ -8,7 +8,7 @@ A `google_pubsub_topic_iam_binding` is used to test a Google Topic Iam Bindings
 
 ## Examples
 ```
-describe google_pubsub_topic_iam_binding(project: "project", name: "name", role: "roles/editor") do
+describe google_pubsub_topic_iam_binding(["project", "name"], role: "roles/editor") do
   it { should exist }
   its('members') { should include 'user:testuser@example.com' }
 end

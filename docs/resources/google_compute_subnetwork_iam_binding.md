@@ -8,7 +8,7 @@ A `google_compute_subnetwork_iam_binding` is used to test a Google Subnetwork Ia
 
 ## Examples
 ```
-describe google_compute_subnetwork_iam_binding(project: "project", region: "region", name: "name", role: "roles/editor") do
+describe google_compute_subnetwork_iam_binding(["project", "region", "name"], role: "roles/editor") do
   it { should exist }
   its('members') { should include 'user:testuser@example.com' }
 end

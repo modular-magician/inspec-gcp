@@ -8,7 +8,7 @@ A `google_resourcemanager_project_iam_binding` is used to test a Google Project 
 
 ## Examples
 ```
-describe google_resourcemanager_project_iam_binding(project_id: "projectId", role: "roles/editor") do
+describe google_resourcemanager_project_iam_binding(["projectId"], role: "roles/editor") do
   it { should exist }
   its('members') { should include 'user:testuser@example.com' }
 end

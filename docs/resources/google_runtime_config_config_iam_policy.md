@@ -8,11 +8,11 @@ A `google_runtime_config_config_iam_policy` is used to test a Google Config Iam 
 
 ## Examples
 ```
-describe google_runtime_config_config_iam_policy(project: "project", name: "name") do
+describe google_runtime_config_config_iam_policy(["project", "name"]) do
   it { should exist }
 end
 
-google_runtime_config_config_iam_policy(project: "project", name: "name").bindings.each do |binding|
+google_runtime_config_config_iam_policy(["project", "name"]).bindings.each do |binding|
   describe binding do
     its('role') { should eq 'roles/editor'}
     its('members') { should include 'user:testuser@example.com'}
@@ -22,6 +22,8 @@ end
 
 ## Properties
 Properties that can be accessed from the `google_runtime_config_config_iam_policy` resource:
+
+  * `iam_binding_roles`: The list of roles that exist on the policy.
 
   * `bindings`: Associates a list of members to a role.
 
