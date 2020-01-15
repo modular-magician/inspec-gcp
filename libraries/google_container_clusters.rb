@@ -144,7 +144,7 @@ class ContainerClusters < GcpResourceBase
 
   private
 
-  def product_url
+  def product_url(_ = nil)
     'https://container.googleapis.com/v1/'
   end
 

@@ -94,7 +94,7 @@ class CloudBuildTriggers < GcpResourceBase
 
   private
 
-  def product_url
+  def product_url(_ = nil)
     'https://cloudbuild.googleapis.com/v1/'
   end
 

@@ -94,7 +94,7 @@ class ComputeHttpHealthChecks < GcpResourceBase
 
   private
 
-  def product_url
+  def product_url(_ = nil)
     'https://www.googleapis.com/compute/v1/'
   end
 
