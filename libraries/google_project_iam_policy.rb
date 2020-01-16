@@ -14,40 +14,29 @@
 #
 # ----------------------------------------------------------------------------
 require 'gcp_backend'
+require 'google/iam/property/iam_policy_audit_configs'
+require 'google/iam/property/iam_policy_bindings'
 
-# A provider to manage Compute Engine resources.
-class ComputeNodeGroup < GcpResourceBase
-  name 'google_compute_node_group'
-  desc 'NodeGroup'
+# A provider to manage Resource Manager IAM Policy resources.
+class ProjectIamPolicy < GcpResourceBase
+  name 'google_project_iam_policy'
+  desc 'Project Iam Policy'
   supports platform: 'gcp'
 
   attr_reader :params
-  attr_reader :creation_timestamp
-  attr_reader :description
-  attr_reader :name
-  attr_reader :node_template
-  attr_reader :size
-  attr_reader :zone
+  attr_reader :bindings
+  attr_reader :audit_configs
 
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
     @params = params
-    @fetched = @connection.fetch(product_url(params[:beta]), resource_base_url, params, 'Get')
+    @fetched = @connection.fetch(product_url, resource_base_url, params, 'Post')
     parse unless @fetched.nil?
   end
 
   def parse
-    @creation_timestamp = parse_time_string(@fetched['creationTimestamp'])
-    @description = @fetched['description']
-    @name = @fetched['name']
-    @node_template = @fetched['nodeTemplate']
-    @size = @fetched['size']
-    @zone = @fetched['zone']
-  end
-
-  # Handles parsing RFC3339 time string
-  def parse_time_string(time_string)
-    time_string ? Time.parse(time_string) : nil
+    @bindings = GoogleInSpec::Iam::Property::IamPolicyBindingsArray.parse(@fetched['bindings'], to_s)
+    @audit_configs = GoogleInSpec::Iam::Property::IamPolicyAuditConfigsArray.parse(@fetched['auditConfigs'], to_s)
   end
 
   def exists?
@@ -55,16 +44,24 @@ class ComputeNodeGroup < GcpResourceBase
   end
 
   def to_s
-    "NodeGroup #{@params[:name]}"
+    "Project IamPolicy #{@params[:project]}"
+  end
+
+  def iam_binding_roles
+    @bindings.map(&:role)
+  end
+
+  def count
+    @bindings.size
   end
 
   private
 
-  def product_url(_ = nil)
-    'https://www.googleapis.com/compute/v1/'
+  def product_url
+    'https://cloudresourcemanager.googleapis.com/v1/'
   end
 
   def resource_base_url
-    'projects/{{project}}/zones/{{zone}}/nodeGroups/{{name}}'
+    'projects/{{project}}:getIamPolicy'
   end
 end
