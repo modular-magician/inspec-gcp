@@ -66,12 +66,8 @@ class DNSResourceRecordSet < GcpResourceBase
 
   private
 
-  def product_url(beta = false)
-    if beta
-      'https://www.googleapis.com/dns/v1beta2/'
-    else
-      'https://www.googleapis.com/dns/v1/'
-    end
+  def product_url(_ = nil)
+    'https://www.googleapis.com/dns/v1/'
   end
 
   def resource_base_url
