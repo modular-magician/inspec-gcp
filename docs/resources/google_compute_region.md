@@ -6,10 +6,6 @@ platform: gcp
 ## Syntax
 A `google_compute_region` is used to test a Google Region resource
 
-
-## Beta Resource
-This resource has beta fields available. To retrieve these fields, include `beta: true` in the constructor for the resource
-
 ## Examples
 ```
 describe google_compute_region(project: 'chef-gcp-inspec', name: 'europe-west2') do
