@@ -58,7 +58,7 @@ class SubnetworkIamPolicy < GcpResourceBase
   private
 
   def product_url
-    'https://www.googleapis.com/compute/beta/'
+    'https://www.googleapis.com/compute/v1/'
   end
 
   def resource_base_url
