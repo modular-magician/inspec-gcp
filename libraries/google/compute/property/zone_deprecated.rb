@@ -16,31 +16,34 @@
 module GoogleInSpec
   module Compute
     module Property
-      class AutoscalerAutoscalingPolicyCustomMetricUtilizations
-        attr_reader :metric
+      class ZoneDeprecated
+        attr_reader :deleted
 
-        attr_reader :utilization_target
+        attr_reader :deprecated
 
-        attr_reader :utilization_target_type
+        attr_reader :obsolete
+
+        attr_reader :replacement
+
+        attr_reader :state
 
         def initialize(args = nil, parent_identifier = nil)
           return if args.nil?
           @parent_identifier = parent_identifier
-          @metric = args['metric']
-          @utilization_target = args['utilizationTarget']
-          @utilization_target_type = args['utilizationTargetType']
+          @deleted = parse_time_string(args['deleted'])
+          @deprecated = parse_time_string(args['deprecated'])
+          @obsolete = parse_time_string(args['obsolete'])
+          @replacement = args['replacement']
+          @state = args['state']
         end
 
         def to_s
-          "#{@parent_identifier} AutoscalerAutoscalingPolicyCustomMetricUtilizations"
+          "#{@parent_identifier} ZoneDeprecated"
         end
-      end
 
-      class AutoscalerAutoscalingPolicyCustomMetricUtilizationsArray
-        def self.parse(value, parent_identifier)
-          return if value.nil?
-          return AutoscalerAutoscalingPolicyCustomMetricUtilizations.new(value, parent_identifier) unless value.is_a?(::Array)
-          value.map { |v| AutoscalerAutoscalingPolicyCustomMetricUtilizations.new(v, parent_identifier) }
+        # Handles parsing RFC3339 time string
+        def parse_time_string(time_string)
+          time_string ? Time.parse(time_string) : nil
         end
       end
     end
