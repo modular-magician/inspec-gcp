@@ -6,10 +6,6 @@ platform: gcp
 ## Syntax
 A `google_compute_node_templates` is used to test a Google NodeTemplate resource
 
-
-## Beta Resource
-This resource has beta fields available. To retrieve these fields, include `beta: true` in the constructor for the resource
-
 ## Examples
 ```
 
@@ -28,7 +24,6 @@ See [google_compute_node_template.md](google_compute_node_template.md) for more 
   * `node_affinity_labels`: an array of `google_compute_node_template` node_affinity_labels
   * `node_types`: an array of `google_compute_node_template` node_type
   * `node_type_flexibilities`: an array of `google_compute_node_template` node_type_flexibility
-  * `server_bindings`: (Beta only) an array of `google_compute_node_template` server_binding
   * `regions`: an array of `google_compute_node_template` region
 
 ## Filter Criteria
