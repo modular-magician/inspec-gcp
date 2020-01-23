@@ -16,31 +16,28 @@
 module GoogleInSpec
   module Compute
     module Property
-      class AutoscalerAutoscalingPolicyCustomMetricUtilizations
-        attr_reader :metric
+      class ProjectInfoCommonInstanceMetadataItems
+        attr_reader :key
 
-        attr_reader :utilization_target
-
-        attr_reader :utilization_target_type
+        attr_reader :value
 
         def initialize(args = nil, parent_identifier = nil)
           return if args.nil?
           @parent_identifier = parent_identifier
-          @metric = args['metric']
-          @utilization_target = args['utilizationTarget']
-          @utilization_target_type = args['utilizationTargetType']
+          @key = args['key']
+          @value = args['value']
         end
 
         def to_s
-          "#{@parent_identifier} AutoscalerAutoscalingPolicyCustomMetricUtilizations"
+          "#{@parent_identifier} ProjectInfoCommonInstanceMetadataItems"
         end
       end
 
-      class AutoscalerAutoscalingPolicyCustomMetricUtilizationsArray
+      class ProjectInfoCommonInstanceMetadataItemsArray
         def self.parse(value, parent_identifier)
           return if value.nil?
-          return AutoscalerAutoscalingPolicyCustomMetricUtilizations.new(value, parent_identifier) unless value.is_a?(::Array)
-          value.map { |v| AutoscalerAutoscalingPolicyCustomMetricUtilizations.new(v, parent_identifier) }
+          return ProjectInfoCommonInstanceMetadataItems.new(value, parent_identifier) unless value.is_a?(::Array)
+          value.map { |v| ProjectInfoCommonInstanceMetadataItems.new(v, parent_identifier) }
         end
       end
     end

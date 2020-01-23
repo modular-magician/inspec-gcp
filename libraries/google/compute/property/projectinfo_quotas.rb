@@ -16,31 +16,34 @@
 module GoogleInSpec
   module Compute
     module Property
-      class AutoscalerAutoscalingPolicyCustomMetricUtilizations
+      class ProjectInfoQuotas
         attr_reader :metric
 
-        attr_reader :utilization_target
+        attr_reader :limit
 
-        attr_reader :utilization_target_type
+        attr_reader :usage
+
+        attr_reader :owner
 
         def initialize(args = nil, parent_identifier = nil)
           return if args.nil?
           @parent_identifier = parent_identifier
           @metric = args['metric']
-          @utilization_target = args['utilizationTarget']
-          @utilization_target_type = args['utilizationTargetType']
+          @limit = args['limit']
+          @usage = args['usage']
+          @owner = args['owner']
         end
 
         def to_s
-          "#{@parent_identifier} AutoscalerAutoscalingPolicyCustomMetricUtilizations"
+          "#{@parent_identifier} ProjectInfoQuotas"
         end
       end
 
-      class AutoscalerAutoscalingPolicyCustomMetricUtilizationsArray
+      class ProjectInfoQuotasArray
         def self.parse(value, parent_identifier)
           return if value.nil?
-          return AutoscalerAutoscalingPolicyCustomMetricUtilizations.new(value, parent_identifier) unless value.is_a?(::Array)
-          value.map { |v| AutoscalerAutoscalingPolicyCustomMetricUtilizations.new(v, parent_identifier) }
+          return ProjectInfoQuotas.new(value, parent_identifier) unless value.is_a?(::Array)
+          value.map { |v| ProjectInfoQuotas.new(v, parent_identifier) }
         end
       end
     end

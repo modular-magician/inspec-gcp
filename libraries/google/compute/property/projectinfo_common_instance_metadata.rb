@@ -13,34 +13,21 @@
 #     CONTRIBUTING.md located at the root of this package.
 #
 # ----------------------------------------------------------------------------
+require 'google/compute/property/projectinfo_common_instance_metadata_items'
 module GoogleInSpec
   module Compute
     module Property
-      class AutoscalerAutoscalingPolicyCustomMetricUtilizations
-        attr_reader :metric
-
-        attr_reader :utilization_target
-
-        attr_reader :utilization_target_type
+      class ProjectInfoCommonInstanceMetadata
+        attr_reader :items
 
         def initialize(args = nil, parent_identifier = nil)
           return if args.nil?
           @parent_identifier = parent_identifier
-          @metric = args['metric']
-          @utilization_target = args['utilizationTarget']
-          @utilization_target_type = args['utilizationTargetType']
+          @items = GoogleInSpec::Compute::Property::ProjectInfoCommonInstanceMetadataItemsArray.parse(args['items'], to_s)
         end
 
         def to_s
-          "#{@parent_identifier} AutoscalerAutoscalingPolicyCustomMetricUtilizations"
-        end
-      end
-
-      class AutoscalerAutoscalingPolicyCustomMetricUtilizationsArray
-        def self.parse(value, parent_identifier)
-          return if value.nil?
-          return AutoscalerAutoscalingPolicyCustomMetricUtilizations.new(value, parent_identifier) unless value.is_a?(::Array)
-          value.map { |v| AutoscalerAutoscalingPolicyCustomMetricUtilizations.new(v, parent_identifier) }
+          "#{@parent_identifier} ProjectInfoCommonInstanceMetadata"
         end
       end
     end
