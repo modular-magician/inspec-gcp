@@ -15,7 +15,6 @@
 # ----------------------------------------------------------------------------
 require 'gcp_backend'
 require 'google/compute/property/nodetemplate_node_type_flexibility'
-require 'google/compute/property/nodetemplate_server_binding'
 
 # A provider to manage Compute Engine resources.
 class ComputeNodeTemplate < GcpResourceBase
@@ -30,7 +29,6 @@ class ComputeNodeTemplate < GcpResourceBase
   attr_reader :node_affinity_labels
   attr_reader :node_type
   attr_reader :node_type_flexibility
-  attr_reader :server_binding
   attr_reader :region
 
   def initialize(params)
@@ -47,7 +45,6 @@ class ComputeNodeTemplate < GcpResourceBase
     @node_affinity_labels = @fetched['nodeAffinityLabels']
     @node_type = @fetched['nodeType']
     @node_type_flexibility = GoogleInSpec::Compute::Property::NodeTemplateNodeTypeFlexibility.new(@fetched['nodeTypeFlexibility'], to_s)
-    @server_binding = GoogleInSpec::Compute::Property::NodeTemplateServerBinding.new(@fetched['serverBinding'], to_s)
     @region = @fetched['region']
   end
 
@@ -66,12 +63,8 @@ class ComputeNodeTemplate < GcpResourceBase
 
   private
 
-  def product_url(beta = false)
-    if beta
-      'https://www.googleapis.com/compute/beta/'
-    else
-      'https://www.googleapis.com/compute/v1/'
-    end
+  def product_url(_ = nil)
+    'https://www.googleapis.com/compute/v1/'
   end
 
   def resource_base_url
