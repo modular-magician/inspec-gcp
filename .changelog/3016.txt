@@ -1,0 +1,3 @@
+```release-note:bug
+storage: Stopped `project-owner` showing up in the diff for `google_storage_bucket_acl` 
+```
