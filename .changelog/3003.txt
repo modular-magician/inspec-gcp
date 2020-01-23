@@ -1,0 +1,6 @@
+```release-note:breaking-change
+iam: starts reading/writing IAM policies at version 3 in the GA provider. If you have an IAM resource defined in your config that has a condition on it created outside of Terraform, you should start using the beta provider and defining the condition in your config to avoid unexpected behavior.
+```
+```release-note:bug
+iam: fixes issue where users of the GA provider who used IAM conditions outside of Terraform were getting an error
+```
