@@ -29,7 +29,6 @@ See [google_cloud_scheduler_job.md](google_cloud_scheduler_job.md) for more deta
   * `descriptions`: an array of `google_cloud_scheduler_job` description
   * `schedules`: an array of `google_cloud_scheduler_job` schedule
   * `time_zones`: an array of `google_cloud_scheduler_job` time_zone
-  * `attempt_deadlines`: an array of `google_cloud_scheduler_job` attempt_deadline
   * `retry_configs`: an array of `google_cloud_scheduler_job` retry_config
   * `pubsub_targets`: an array of `google_cloud_scheduler_job` pubsub_target
   * `app_engine_http_targets`: an array of `google_cloud_scheduler_job` app_engine_http_target

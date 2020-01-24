@@ -33,7 +33,6 @@ class CloudSchedulerJob < GcpResourceBase
   attr_reader :description
   attr_reader :schedule
   attr_reader :time_zone
-  attr_reader :attempt_deadline
   attr_reader :retry_config
   attr_reader :pubsub_target
   attr_reader :app_engine_http_target
@@ -43,7 +42,7 @@ class CloudSchedulerJob < GcpResourceBase
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
     @params = params
-    @fetched = @connection.fetch(product_url(params[:beta]), resource_base_url, params, 'Get')
+    @fetched = @connection.fetch(product_url, resource_base_url, params, 'Get')
     parse unless @fetched.nil?
   end
 
@@ -52,7 +51,6 @@ class CloudSchedulerJob < GcpResourceBase
     @description = @fetched['description']
     @schedule = @fetched['schedule']
     @time_zone = @fetched['timeZone']
-    @attempt_deadline = @fetched['attemptDeadline']
     @retry_config = GoogleInSpec::CloudScheduler::Property::JobRetryConfig.new(@fetched['retryConfig'], to_s)
     @pubsub_target = GoogleInSpec::CloudScheduler::Property::JobPubsubTarget.new(@fetched['pubsubTarget'], to_s)
     @app_engine_http_target = GoogleInSpec::CloudScheduler::Property::JobAppEngineHttpTarget.new(@fetched['appEngineHttpTarget'], to_s)
@@ -70,7 +68,7 @@ class CloudSchedulerJob < GcpResourceBase
 
   private
 
-  def product_url(_ = nil)
+  def product_url
     'https://cloudscheduler.googleapis.com/v1/'
   end
 

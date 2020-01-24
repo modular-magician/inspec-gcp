@@ -34,7 +34,7 @@ class ComputeBackendBucket < GcpResourceBase
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
     @params = params
-    @fetched = @connection.fetch(product_url(params[:beta]), resource_base_url, params, 'Get')
+    @fetched = @connection.fetch(product_url, resource_base_url, params, 'Get')
     parse unless @fetched.nil?
   end
 
@@ -63,12 +63,8 @@ class ComputeBackendBucket < GcpResourceBase
 
   private
 
-  def product_url(beta = false)
-    if beta
-      'https://www.googleapis.com/compute/beta/'
-    else
-      'https://www.googleapis.com/compute/v1/'
-    end
+  def product_url
+    'https://www.googleapis.com/compute/v1/'
   end
 
   def resource_base_url

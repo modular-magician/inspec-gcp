@@ -40,7 +40,7 @@ Properties that can be accessed from the `google_cloudbuild_trigger` resource:
 
   * `filename`: Path, from the source root, to a file whose contents is used for the template. Either a filename or build template must be provided.
 
-  * `ignored_files`: ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match extended with support for `**`.  If ignoredFiles and changed files are both empty, then they are not used to determine whether or not to trigger a build.  If ignoredFiles is not empty, then we ignore any files that match any of the ignored_file globs. If the change has no files that are outside of the ignoredFiles globs, then we do not trigger a build.
+  * `ignored_files`: ignoredFiles and includedFiles are file glob matches using http://godoc/pkg/path/filepath#Match extended with support for `**`.  If ignoredFiles and changed files are both empty, then they are not used to determine whether or not to trigger a build.  If ignoredFiles is not empty, then we ignore any files that match any of the ignored_file globs. If the change has no files that are outside of the ignoredFiles globs, then we do not trigger a build.
 
   * `included_files`: ignoredFiles and includedFiles are file glob matches using http://godoc/pkg/path/filepath#Match extended with support for `**`.  If any of the files altered in the commit pass the ignoredFiles filter and includedFiles is empty, then as far as this filter is concerned, we should trigger the build.  If any of the files altered in the commit pass the ignoredFiles filter and includedFiles is not empty, then we make sure that at least one of those files matches a includedFiles glob. If not, then we do not trigger a build.
 
@@ -57,24 +57,6 @@ Properties that can be accessed from the `google_cloudbuild_trigger` resource:
     * `tag_name`: Name of the tag to build. Exactly one of a branch name, tag, or commit SHA must be provided. This field is a regular expression.
 
     * `commit_sha`: Explicit commit SHA to build. Exactly one of a branch name, tag, or commit SHA must be provided.
-
-  * `github`: (Beta only) Describes the configuration of a trigger that creates a build whenever a GitHub event is received.
-
-    * `owner`: Owner of the repository. For example: The owner for https://github.com/googlecloudplatform/cloud-builders is "googlecloudplatform".
-
-    * `name`: Name of the repository. For example: The name for https://github.com/googlecloudplatform/cloud-builders is "cloud-builders".
-
-    * `pull_request`: filter to match changes in pull requests.  Specify only one of pullRequest or push.
-
-      * `branch`: Regex of branches to match.
-
-      * `comment_control`: Whether to block builds on a "/gcbrun" comment from a repository owner or collaborator.
-
-    * `push`: filter to match changes in refs, like branches or tags.  Specify only one of pullRequest or push.
-
-      * `branch`: Regex of branches to match.  Specify only one of branch or tag.
-
-      * `tag`: Regex of tags to match.  Specify only one of branch or tag.
 
   * `build`: Contents of the build template. Either a filename or build template must be provided.
 

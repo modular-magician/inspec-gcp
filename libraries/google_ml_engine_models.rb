@@ -81,7 +81,7 @@ class MLEngineModels < GcpResourceBase
 
   private
 
-  def product_url(_ = nil)
+  def product_url
     'https://ml.googleapis.com/v1/'
   end
 

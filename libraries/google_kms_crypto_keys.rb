@@ -88,7 +88,7 @@ class KMSCryptoKeys < GcpResourceBase
 
   private
 
-  def product_url(_ = nil)
+  def product_url
     'https://cloudkms.googleapis.com/v1/'
   end
 

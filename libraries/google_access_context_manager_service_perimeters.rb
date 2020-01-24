@@ -88,7 +88,7 @@ class AccessContextManagerServicePerimeters < GcpResourceBase
 
   private
 
-  def product_url(_ = nil)
+  def product_url
     'https://accesscontextmanager.googleapis.com/v1/'
   end
 

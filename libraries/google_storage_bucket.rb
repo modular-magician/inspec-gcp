@@ -33,7 +33,6 @@ class StorageBucket < GcpResourceBase
   attr_reader :params
   attr_reader :acl
   attr_reader :cors
-  attr_reader :default_event_based_hold
   attr_reader :default_object_acl
   attr_reader :id
   attr_reader :lifecycle
@@ -54,14 +53,13 @@ class StorageBucket < GcpResourceBase
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
     @params = params
-    @fetched = @connection.fetch(product_url(params[:beta]), resource_base_url, params, 'Get')
+    @fetched = @connection.fetch(product_url, resource_base_url, params, 'Get')
     parse unless @fetched.nil?
   end
 
   def parse
     @acl = GoogleInSpec::Storage::Property::BucketAclArray.parse(@fetched['acl'], to_s)
     @cors = GoogleInSpec::Storage::Property::BucketCorsArray.parse(@fetched['cors'], to_s)
-    @default_event_based_hold = @fetched['defaultEventBasedHold']
     @default_object_acl = GoogleInSpec::Storage::Property::BucketDefaultObjectAclArray.parse(@fetched['defaultObjectAcl'], to_s)
     @id = @fetched['id']
     @lifecycle = GoogleInSpec::Storage::Property::BucketLifecycle.new(@fetched['lifecycle'], to_s)
@@ -95,7 +93,7 @@ class StorageBucket < GcpResourceBase
 
   private
 
-  def product_url(_ = nil)
+  def product_url
     'https://www.googleapis.com/storage/v1/'
   end
 

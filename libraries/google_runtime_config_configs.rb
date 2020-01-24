@@ -71,7 +71,7 @@ class RuntimeConfigConfigs < GcpResourceBase
 
   private
 
-  def product_url(_ = nil)
+  def product_url
     'https://runtimeconfig.googleapis.com/v1beta1/'
   end
 

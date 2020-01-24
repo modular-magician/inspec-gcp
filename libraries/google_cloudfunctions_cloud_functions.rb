@@ -103,7 +103,7 @@ class CloudFunctionsCloudFunctions < GcpResourceBase
 
   private
 
-  def product_url(_ = nil)
+  def product_url
     'https://cloudfunctions.googleapis.com/v1/'
   end
 

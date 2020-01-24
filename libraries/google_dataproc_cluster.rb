@@ -46,7 +46,7 @@ class DataprocCluster < GcpResourceBase
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
     @params = params
-    @fetched = @connection.fetch(product_url(params[:beta]), resource_base_url, params, 'Get')
+    @fetched = @connection.fetch(product_url, resource_base_url, params, 'Get')
     parse unless @fetched.nil?
   end
 
@@ -67,12 +67,8 @@ class DataprocCluster < GcpResourceBase
 
   private
 
-  def product_url(beta = false)
-    if beta
-      'https://dataproc.googleapis.com/v1beta2/'
-    else
-      'https://dataproc.googleapis.com/v1/'
-    end
+  def product_url
+    'https://dataproc.googleapis.com/v1/'
   end
 
   def resource_base_url

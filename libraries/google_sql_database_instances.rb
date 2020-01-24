@@ -97,7 +97,7 @@ class SQLDatabaseInstances < GcpResourceBase
 
   private
 
-  def product_url(_ = nil)
+  def product_url
     'https://www.googleapis.com/sql/v1beta4/'
   end
 

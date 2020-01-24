@@ -109,7 +109,7 @@ class BigQueryTables < GcpResourceBase
 
   private
 
-  def product_url(_ = nil)
+  def product_url
     'https://www.googleapis.com/bigquery/v2/'
   end
 

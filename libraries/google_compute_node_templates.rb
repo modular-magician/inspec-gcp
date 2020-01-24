@@ -29,7 +29,6 @@ class ComputeNodeTemplates < GcpResourceBase
   filter_table_config.add(:node_affinity_labels, field: :node_affinity_labels)
   filter_table_config.add(:node_types, field: :node_type)
   filter_table_config.add(:node_type_flexibilities, field: :node_type_flexibility)
-  filter_table_config.add(:server_bindings, field: :server_binding)
   filter_table_config.add(:regions, field: :region)
 
   filter_table_config.connect(self, :table)
@@ -76,7 +75,6 @@ class ComputeNodeTemplates < GcpResourceBase
       'nodeAffinityLabels' => ->(obj) { return :node_affinity_labels, obj['nodeAffinityLabels'] },
       'nodeType' => ->(obj) { return :node_type, obj['nodeType'] },
       'nodeTypeFlexibility' => ->(obj) { return :node_type_flexibility, GoogleInSpec::Compute::Property::NodeTemplateNodeTypeFlexibility.new(obj['nodeTypeFlexibility'], to_s) },
-      'serverBinding' => ->(obj) { return :server_binding, GoogleInSpec::Compute::Property::NodeTemplateServerBinding.new(obj['serverBinding'], to_s) },
       'region' => ->(obj) { return :region, obj['region'] },
     }
   end
@@ -88,12 +86,8 @@ class ComputeNodeTemplates < GcpResourceBase
 
   private
 
-  def product_url(beta = false)
-    if beta
-      'https://www.googleapis.com/compute/beta/'
-    else
-      'https://www.googleapis.com/compute/v1/'
-    end
+  def product_url
+    'https://www.googleapis.com/compute/v1/'
   end
 
   def resource_base_url
