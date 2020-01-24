@@ -1,3 +1,5 @@
+# frozen_string_literal: false
+
 # ----------------------------------------------------------------------------
 #
 #     ***     AUTO GENERATED CODE    ***    AUTO GENERATED CODE     ***
@@ -11,17 +13,22 @@
 #     CONTRIBUTING.md located at the root of this package.
 #
 # ----------------------------------------------------------------------------
+module GoogleInSpec
+  module ResourceManager
+    module Property
+      class OrganizationOwner
+        attr_reader :directory_customer_id
 
-title 'Test GCP google_compute_project_info resource.'
+        def initialize(args = nil, parent_identifier = nil)
+          return if args.nil?
+          @parent_identifier = parent_identifier
+          @directory_customer_id = args['directoryCustomerId']
+        end
 
-gcp_project_id = attribute(:gcp_project_id, default: 'gcp_project_id', description: 'The GCP project identifier.')
-control 'google_compute_project_info-1.0' do
-  impact 1.0
-  title 'google_compute_project_info resource test'
-
-  describe google_compute_project_info(project: gcp_project_id) do
-  	it { should exist }
-  	its('default_service_account') { should match "developer.gserviceaccount.com" }
-  	it { should_not be_has_enabled_oslogin }
+        def to_s
+          "#{@parent_identifier} OrganizationOwner"
+        end
+      end
+    end
   end
 end
