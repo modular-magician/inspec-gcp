@@ -21,14 +21,11 @@ module GoogleInSpec
 
         attr_reader :sha256
 
-        attr_reader :kms_key_name
-
         def initialize(args = nil, parent_identifier = nil)
           return if args.nil?
           @parent_identifier = parent_identifier
           @raw_key = args['rawKey']
           @sha256 = args['sha256']
-          @kms_key_name = args['kmsKeyName']
         end
 
         def to_s

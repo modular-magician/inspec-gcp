@@ -16,10 +16,6 @@
 require 'gcp_backend'
 require 'google/dns/property/managedzone_dnssec_config'
 require 'google/dns/property/managedzone_dnssec_config_default_key_specs'
-require 'google/dns/property/managedzone_forwarding_config'
-require 'google/dns/property/managedzone_forwarding_config_target_name_servers'
-require 'google/dns/property/managedzone_peering_config'
-require 'google/dns/property/managedzone_peering_config_target_network'
 require 'google/dns/property/managedzone_private_visibility_config'
 require 'google/dns/property/managedzone_private_visibility_config_networks'
 
@@ -41,9 +37,6 @@ class DNSManagedZone < GcpResourceBase
   attr_reader :labels
   attr_reader :visibility
   attr_reader :private_visibility_config
-  attr_reader :forwarding_config
-  attr_reader :peering_config
-  attr_reader :reverse_lookup
 
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
@@ -64,9 +57,6 @@ class DNSManagedZone < GcpResourceBase
     @labels = @fetched['labels']
     @visibility = @fetched['visibility']
     @private_visibility_config = GoogleInSpec::DNS::Property::ManagedZonePrivateVisibilityConfig.new(@fetched['privateVisibilityConfig'], to_s)
-    @forwarding_config = GoogleInSpec::DNS::Property::ManagedZoneForwardingConfig.new(@fetched['forwardingConfig'], to_s)
-    @peering_config = GoogleInSpec::DNS::Property::ManagedZonePeeringConfig.new(@fetched['peeringConfig'], to_s)
-    @reverse_lookup = @fetched['reverseLookupConfig']
   end
 
   # Handles parsing RFC3339 time string
@@ -98,12 +88,8 @@ class DNSManagedZone < GcpResourceBase
 
   private
 
-  def product_url(beta = false)
-    if beta
-      'https://www.googleapis.com/dns/v1beta2/'
-    else
-      'https://www.googleapis.com/dns/v1/'
-    end
+  def product_url(_ = nil)
+    'https://www.googleapis.com/dns/v1/'
   end
 
   def resource_base_url

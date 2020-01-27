@@ -6,10 +6,6 @@ platform: gcp
 ## Syntax
 A `google_dns_managed_zone` is used to test a Google ManagedZone resource
 
-
-## Beta Resource
-This resource has beta fields available. To retrieve these fields, include `beta: true` in the constructor for the resource
-
 ## Examples
 ```
 describe google_dns_managed_zone(project: 'chef-gcp-inspec', zone: 'example-zone') do
@@ -71,22 +67,6 @@ Properties that can be accessed from the `google_dns_managed_zone` resource:
     * `networks`: The list of VPC networks that can see this zone.
 
       * `network_url`: The fully qualified URL of the VPC network to bind to. This should be formatted like `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`
-
-  * `forwarding_config`: (Beta only) The presence for this field indicates that outbound forwarding is enabled for this zone. The value of this field contains the set of destinations to forward to.
-
-    * `target_name_servers`: List of target name servers to forward to. Cloud DNS will select the best available name server if more than one target is given.
-
-      * `ipv4_address`: IPv4 address of a target name server.
-
-      * `forwarding_path`: Forwarding path for this TargetNameServer. If unset or `default` Cloud DNS will make forwarding decision based on address ranges, i.e. RFC1918 addresses go to the VPC, Non-RFC1918 addresses go to the Internet. When set to `private`, Cloud DNS will always send queries through VPC for this target
-
-  * `peering_config`: (Beta only) The presence of this field indicates that DNS Peering is enabled for this zone. The value of this field contains the network to peer with.
-
-    * `target_network`: The network with which to peer.
-
-      * `network_url`: The fully qualified URL of the VPC network to forward queries to. This should be formatted like `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`
-
-  * `reverse_lookup`: (Beta only) Specifies if this is a managed reverse lookup zone. If true, Cloud DNS will resolve reverse lookup queries using automatically configured records for VPC resources. This only applies to networks listed under `private_visibility_config`.
 
 
 ## GCP Permissions

@@ -6,10 +6,6 @@ platform: gcp
 ## Syntax
 A `google_compute_image` is used to test a Google Image resource
 
-
-## Beta Resource
-This resource has beta fields available. To retrieve these fields, include `beta: true` in the constructor for the resource
-
 ## Examples
 ```
 describe google_compute_image(project: 'chef-gcp-inspec', name: 'inspec-image') do
@@ -60,8 +56,6 @@ Properties that can be accessed from the `google_compute_image` resource:
 
     * `sha256`: The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied encryption key that protects this resource.
 
-    * `kms_key_name`: (Beta only) The name of the encryption key that is stored in Google Cloud KMS.
-
   * `labels`: Labels to apply to this Image.
 
   * `label_fingerprint`: The fingerprint used for optimistic locking of this resource. Used internally during updates.
@@ -85,8 +79,6 @@ Properties that can be accessed from the `google_compute_image` resource:
     * `raw_key`: Specifies a 256-bit customer-supplied encryption key, encoded in RFC 4648 base64 to either encrypt or decrypt this resource.
 
     * `sha256`: The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied encryption key that protects this resource.
-
-    * `kms_key_name`: (Beta only) The name of the encryption key that is stored in Google Cloud KMS.
 
   * `source_disk_id`: The ID value of the disk used to create this image. This value may be used to determine whether the image was taken from the current or a previous instance of a given disk name.
 
