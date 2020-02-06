@@ -90,7 +90,7 @@ Properties that can be accessed from the `google_compute_subnetwork` resource:
 
   * `role`: (Beta only) The role of subnetwork. Currently, this field is only used when purpose = INTERNAL_HTTPS_LOAD_BALANCER. The value can be set to ACTIVE or BACKUP. An ACTIVE subnetwork is one that is currently being used for Internal HTTP(S) Load Balancing. A BACKUP subnetwork is one that is ready to be promoted to ACTIVE or is currently draining.
 
-  * `secondary_ip_ranges`: An array of configurations for secondary IP ranges for VM instances contained in this subnetwork. The primary IP of such VM must belong to the primary ipCidrRange of the subnetwork. The alias IPs may belong to either primary or secondary ranges.
+  * `secondary_ip_ranges`: An array of configurations for secondary IP ranges for VM instances contained in this subnetwork. The primary IP of such VM must belong to the primary ipCidrRange of the subnetwork. The alias IPs may belong to either primary or secondary ranges. **Note**: This field will default to the API if empty. In order to explicitly remove any secondary IP ranges, set this to an empty array.  For example: `secondary_ip_range=[]`
 
     * `range_name`: The name associated with this subnetwork secondary range, used when adding an alias IP range to a VM instance. The name must be 1-63 characters long, and comply with RFC1035. The name must be unique within the subnetwork.
 
