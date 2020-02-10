@@ -99,7 +99,7 @@ class SQLDatabaseInstance < GcpResourceBase
   private
 
   def product_url(_ = nil)
-    'https://www.googleapis.com/sql/v1beta4/'
+    'https://sqladmin.googleapis.com/v1beta4/'
   end
 
   def resource_base_url
