@@ -95,6 +95,8 @@ Properties that can be accessed from the `google_compute_forwarding_rule` resour
 
   * `allow_global_access`: (Beta only) If true, clients can access ILB from all regions. Otherwise only allows from the local region the ILB is located at.
 
+  * `is_mirroring_collector`: (Beta only) Indicates whether or not this load balancer can be used as a collector for packet mirroring. This can only be set to true for load balancers that have their loadBalancingScheme set to INTERNAL.
+
   * `labels`: (Beta only) Labels to apply to this forwarding rule.  A list of key->value pairs.
 
   * `label_fingerprint`: (Beta only) The fingerprint used for optimistic locking of this resource.  Used internally during updates.

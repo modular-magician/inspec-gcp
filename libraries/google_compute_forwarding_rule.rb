@@ -36,6 +36,7 @@ class ComputeForwardingRule < GcpResourceBase
   attr_reader :subnetwork
   attr_reader :target
   attr_reader :allow_global_access
+  attr_reader :is_mirroring_collector
   attr_reader :labels
   attr_reader :label_fingerprint
   attr_reader :all_ports
@@ -66,6 +67,7 @@ class ComputeForwardingRule < GcpResourceBase
     @subnetwork = @fetched['subnetwork']
     @target = @fetched['target']
     @allow_global_access = @fetched['allowGlobalAccess']
+    @is_mirroring_collector = @fetched['isMirroringCollector']
     @labels = @fetched['labels']
     @label_fingerprint = @fetched['labelFingerprint']
     @all_ports = @fetched['allPorts']

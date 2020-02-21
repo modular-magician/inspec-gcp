@@ -37,6 +37,7 @@ class ComputeForwardingRules < GcpResourceBase
   filter_table_config.add(:subnetworks, field: :subnetwork)
   filter_table_config.add(:targets, field: :target)
   filter_table_config.add(:allow_global_accesses, field: :allow_global_access)
+  filter_table_config.add(:is_mirroring_collectors, field: :is_mirroring_collector)
   filter_table_config.add(:labels, field: :labels)
   filter_table_config.add(:label_fingerprints, field: :label_fingerprint)
   filter_table_config.add(:all_ports, field: :all_ports)
@@ -97,6 +98,7 @@ class ComputeForwardingRules < GcpResourceBase
       'subnetwork' => ->(obj) { return :subnetwork, obj['subnetwork'] },
       'target' => ->(obj) { return :target, obj['target'] },
       'allowGlobalAccess' => ->(obj) { return :allow_global_access, obj['allowGlobalAccess'] },
+      'isMirroringCollector' => ->(obj) { return :is_mirroring_collector, obj['isMirroringCollector'] },
       'labels' => ->(obj) { return :labels, obj['labels'] },
       'labelFingerprint' => ->(obj) { return :label_fingerprint, obj['labelFingerprint'] },
       'allPorts' => ->(obj) { return :all_ports, obj['allPorts'] },
