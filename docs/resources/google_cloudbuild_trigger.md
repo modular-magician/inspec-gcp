@@ -73,9 +73,13 @@ Properties that can be accessed from the `google_cloudbuild_trigger` resource:
         * COMMENTS_DISABLED
         * COMMENTS_ENABLED
 
+      * `invert_regex`: If true, branches that do NOT match the git_ref will trigger a build.
+
     * `push`: filter to match changes in refs, like branches or tags.  Specify only one of pullRequest or push.
 
       * `branch`: Regex of branches to match.  Specify only one of branch or tag.
+
+      * `invert_regex`: When true, only trigger a build if the revision regex does NOT match the given ref regex.
 
       * `tag`: Regex of tags to match.  Specify only one of branch or tag.
 

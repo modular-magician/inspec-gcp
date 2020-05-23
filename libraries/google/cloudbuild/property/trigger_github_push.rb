@@ -19,12 +19,15 @@ module GoogleInSpec
       class TriggerGithubPush
         attr_reader :branch
 
+        attr_reader :invert_regex
+
         attr_reader :tag
 
         def initialize(args = nil, parent_identifier = nil)
           return if args.nil?
           @parent_identifier = parent_identifier
           @branch = args['branch']
+          @invert_regex = args['invertRegex']
           @tag = args['tag']
         end
 
