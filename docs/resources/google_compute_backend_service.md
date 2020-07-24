@@ -58,7 +58,7 @@ Properties that can be accessed from the `google_compute_backend_service` resour
 
     * `max_rate_per_endpoint`: The max requests per second (RPS) that a single backend network endpoint can handle. This is used to calculate the capacity of the group. Can be used in either balancing mode. For RATE mode, either maxRate or maxRatePerEndpoint must be set.
 
-    * `max_utilization`: Used when balancingMode is UTILIZATION. This ratio defines the CPU utilization target for the group. The default is 0.8. Valid range is [0.0, 1.0].
+    * `max_utilization`: Used when balancingMode is UTILIZATION. This ratio defines the CPU utilization target for the group. Valid range is [0.0, 1.0].
 
   * `circuit_breakers`: Settings controlling the volume of connections to a backend service. This field is applicable only when the load_balancing_scheme is set to INTERNAL_SELF_MANAGED.
 
@@ -126,7 +126,7 @@ Properties that can be accessed from the `google_compute_backend_service` resour
 
   * `enable_cdn`: If true, enable Cloud CDN for this BackendService.
 
-  * `health_checks`: The set of URLs to the HttpHealthCheck or HttpsHealthCheck resource for health checking this BackendService. Currently at most one health check can be specified, and a health check is required.  For internal load balancing, a URL to a HealthCheck resource must be specified instead.
+  * `health_checks`: The set of URLs to the HttpHealthCheck or HttpsHealthCheck resource for health checking this BackendService.  Unless the backend of this service is a NetworkEndpointGroup, a health check is required. Currently at most one health check can be specified.  For internal load balancing, a URL to a HealthCheck resource must be specified instead.
 
   * `id`: The unique identifier for the resource.
 
