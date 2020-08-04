@@ -18,6 +18,7 @@ require 'google/pubsub/property/subscription_dead_letter_policy'
 require 'google/pubsub/property/subscription_expiration_policy'
 require 'google/pubsub/property/subscription_push_config'
 require 'google/pubsub/property/subscription_push_config_oidc_token'
+require 'google/pubsub/property/subscription_retry_policy'
 
 # A provider to manage Cloud Pub/Sub resources.
 class PubsubSubscription < GcpResourceBase
@@ -35,6 +36,7 @@ class PubsubSubscription < GcpResourceBase
   attr_reader :retain_acked_messages
   attr_reader :expiration_policy
   attr_reader :dead_letter_policy
+  attr_reader :retry_policy
 
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
@@ -53,6 +55,7 @@ class PubsubSubscription < GcpResourceBase
     @retain_acked_messages = @fetched['retainAckedMessages']
     @expiration_policy = GoogleInSpec::Pubsub::Property::SubscriptionExpirationPolicy.new(@fetched['expirationPolicy'], to_s)
     @dead_letter_policy = GoogleInSpec::Pubsub::Property::SubscriptionDeadLetterPolicy.new(@fetched['deadLetterPolicy'], to_s)
+    @retry_policy = GoogleInSpec::Pubsub::Property::SubscriptionRetryPolicy.new(@fetched['retryPolicy'], to_s)
   end
 
   def exists?

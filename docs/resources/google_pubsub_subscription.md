@@ -55,6 +55,12 @@ Properties that can be accessed from the `google_pubsub_subscription` resource:
 
     * `max_delivery_attempts`: The maximum number of delivery attempts for any message. The value must be between 5 and 100.  The number of delivery attempts is defined as 1 + (the sum of number of  NACKs and number of times the acknowledgement deadline has been exceeded for the message).  A NACK is any call to ModifyAckDeadline with a 0 deadline. Note that client libraries may automatically extend ack_deadlines.  This field will be honored on a best effort basis.  If this parameter is 0, a default value of 5 is used.
 
+  * `retry_policy`: A policy that specifies how Cloud Pub/Sub retries message delivery.  Retry delay will be exponential based on provided minimum and maximum backoffs. https://en.wikipedia.org/wiki/Exponential_backoff.  RetryPolicy will be triggered on NACKs or acknowledgement deadline exceeded events for a given message.  Retry Policy is implemented on a best effort basis. At times, the delay between consecutive deliveries may not match the configuration. That is, delay can be more or less than configured backoff.
+
+    * `maximum_backoff`: Specifies the maximum delay between consecutive deliveries of a given message.  Value should be between 0 and 600 seconds. Defaults to 600 seconds. A duration in seconds with up to nine fractional digits, terminated by 's'. Example - "3.5s".
+
+    * `minimum_backoff`: Specifies the minimum delay between consecutive deliveries of a given message. Value should be between 0 and 600 seconds. Defaults to 10 seconds. A duration in seconds with up to nine fractional digits, terminated by 's'. Example - "3.5s".
+
 
 ## GCP Permissions
 
