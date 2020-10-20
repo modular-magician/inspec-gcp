@@ -18,6 +18,8 @@ module GoogleInSpec
   module BigQuery
     module Property
       class DatasetAccess
+        attr_reader :id
+
         attr_reader :domain
 
         attr_reader :group_by_email
@@ -35,6 +37,7 @@ module GoogleInSpec
         def initialize(args = nil, parent_identifier = nil)
           return if args.nil?
           @parent_identifier = parent_identifier
+          @id = args['id']
           @domain = args['domain']
           @group_by_email = args['groupByEmail']
           @role = args['role']

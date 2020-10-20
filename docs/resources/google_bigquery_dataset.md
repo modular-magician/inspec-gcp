@@ -38,6 +38,8 @@ Properties that can be accessed from the `google_bigquery_dataset` resource:
 
   * `access`: An array of objects that define dataset access for one or more entities.
 
+    * `id`: The fully-qualified unique name of the dataset in the format projectId:datasetId
+
     * `domain`: A domain to grant access to. Any users signed in with the domain specified will be granted the specified access
 
     * `group_by_email`: An email address of a Google Group to grant access to.
