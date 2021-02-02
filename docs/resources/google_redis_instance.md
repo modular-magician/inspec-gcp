@@ -74,6 +74,12 @@ Properties that can be accessed from the `google_redis_instance` resource:
     * BASIC
     * STANDARD_HA
 
+  * `transit_encryption_mode`: The TLS encryption mode of the Redis instance. Must be one of:  - TRANSIT_ENCRYPTION_MODE_UNSPECIFIED - SERVER_AUTHENTICATION - DISABLED
+  Possible values:
+    * TRANSIT_ENCRYPTION_MODE_UNSPECIFIED
+    * SERVER_AUTHENTICATION
+    * DISABLED
+
   * `region`: The name of the Redis region of the instance.
 
 

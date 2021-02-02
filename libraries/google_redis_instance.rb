@@ -40,6 +40,7 @@ class RedisInstance < GcpResourceBase
   attr_reader :redis_version
   attr_reader :reserved_ip_range
   attr_reader :tier
+  attr_reader :transit_encryption_mode
   attr_reader :region
 
   def initialize(params)
@@ -68,6 +69,7 @@ class RedisInstance < GcpResourceBase
     @redis_version = @fetched['redisVersion']
     @reserved_ip_range = @fetched['reservedIpRange']
     @tier = @fetched['tier']
+    @transit_encryption_mode = @fetched['transitEncryptionMode']
     @region = @fetched['region']
   end
 
