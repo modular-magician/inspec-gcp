@@ -15,8 +15,12 @@
 # ----------------------------------------------------------------------------
 require 'gcp_backend'
 require 'google/accesscontextmanager/property/serviceperimeter_spec'
+require 'google/accesscontextmanager/property/serviceperimeter_spec_egress_policies'
+require 'google/accesscontextmanager/property/serviceperimeter_spec_ingress_policies'
 require 'google/accesscontextmanager/property/serviceperimeter_spec_vpc_accessible_services'
 require 'google/accesscontextmanager/property/serviceperimeter_status'
+require 'google/accesscontextmanager/property/serviceperimeter_status_egress_policies'
+require 'google/accesscontextmanager/property/serviceperimeter_status_ingress_policies'
 require 'google/accesscontextmanager/property/serviceperimeter_status_vpc_accessible_services'
 
 # A provider to manage Access Context Manager (VPC Service Controls) resources.
