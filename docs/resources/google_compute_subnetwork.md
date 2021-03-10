@@ -86,10 +86,7 @@ Properties that can be accessed from the `google_compute_subnetwork` resource:
 
   * `network`: The network this subnet belongs to. Only networks that are in the distributed mode can have subnetworks.
 
-  * `purpose`: (Beta only) The purpose of the resource. This field can be either PRIVATE or INTERNAL_HTTPS_LOAD_BALANCER. A subnetwork with purpose set to INTERNAL_HTTPS_LOAD_BALANCER is a user-created subnetwork that is reserved for Internal HTTP(S) Load Balancing. If unspecified, the purpose defaults to PRIVATE.  If set to INTERNAL_HTTPS_LOAD_BALANCER you must also set the role.
-  Possible values:
-    * INTERNAL_HTTPS_LOAD_BALANCER
-    * PRIVATE
+  * `purpose`: (Beta only) The purpose of the resource. This field can be either PRIVATE or INTERNAL_HTTPS_LOAD_BALANCER. A subnetwork with purpose set to INTERNAL_HTTPS_LOAD_BALANCER is a user-created subnetwork that is reserved for Internal HTTP(S) Load Balancing. If unspecified, the purpose defaults to PRIVATE.  If set to INTERNAL_HTTPS_LOAD_BALANCER you must also set `role`.
 
   * `role`: (Beta only) The role of subnetwork. Currently, this field is only used when purpose = INTERNAL_HTTPS_LOAD_BALANCER. The value can be set to ACTIVE or BACKUP. An ACTIVE subnetwork is one that is currently being used for Internal HTTP(S) Load Balancing. A BACKUP subnetwork is one that is ready to be promoted to ACTIVE or is currently draining.
   Possible values:
