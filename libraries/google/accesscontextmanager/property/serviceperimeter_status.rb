@@ -13,6 +13,8 @@
 #     CONTRIBUTING.md located at the root of this package.
 #
 # ----------------------------------------------------------------------------
+require 'google/accesscontextmanager/property/serviceperimeter_status_egress_policies'
+require 'google/accesscontextmanager/property/serviceperimeter_status_ingress_policies'
 require 'google/accesscontextmanager/property/serviceperimeter_status_vpc_accessible_services'
 module GoogleInSpec
   module AccessContextManager
@@ -26,6 +28,10 @@ module GoogleInSpec
 
         attr_reader :vpc_accessible_services
 
+        attr_reader :ingress_policies
+
+        attr_reader :egress_policies
+
         def initialize(args = nil, parent_identifier = nil)
           return if args.nil?
           @parent_identifier = parent_identifier
@@ -33,6 +39,8 @@ module GoogleInSpec
           @access_levels = args['accessLevels']
           @restricted_services = args['restrictedServices']
           @vpc_accessible_services = GoogleInSpec::AccessContextManager::Property::ServicePerimeterStatusVPCAccessibleServices.new(args['vpcAccessibleServices'], to_s)
+          @ingress_policies = GoogleInSpec::AccessContextManager::Property::ServicePerimeterStatusIngressPoliciesArray.parse(args['ingressPolicies'], to_s)
+          @egress_policies = GoogleInSpec::AccessContextManager::Property::ServicePerimeterStatusEgressPoliciesArray.parse(args['egressPolicies'], to_s)
         end
 
         def to_s
