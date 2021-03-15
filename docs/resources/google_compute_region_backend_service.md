@@ -112,7 +112,7 @@ Properties that can be accessed from the `google_compute_region_backend_service`
 
     * `signed_url_cache_max_age_sec`: Maximum number of seconds the response to a signed URL request will be considered fresh, defaults to 1hr (3600s). After this time period, the response will be revalidated before being served.  When serving responses to signed URL requests, Cloud CDN will internally behave as though all responses from this backend had a "Cache-Control: public, max-age=[TTL]" header, regardless of any existing Cache-Control header. The actual headers served in responses will not be altered.
 
-    * `default_ttl`: (Beta only) Specifies the default TTL for cached content served by this origin for responses  that do not have an existing valid TTL (max-age or s-max-age).
+    * `default_ttl`: (Beta only) Specifies the default TTL for cached content served by this origin for responses that do not have an existing valid TTL (max-age or s-max-age).
 
     * `max_ttl`: (Beta only) Specifies the maximum allowed TTL for cached content served by this origin.
 
@@ -132,7 +132,7 @@ Properties that can be accessed from the `google_compute_region_backend_service`
       * FORCE_CACHE_ALL
       * CACHE_ALL_STATIC
 
-    * `serve_while_stale`: (Beta only) Serve existing content from the cache (if available) when revalidating content with the origin, or when an error is encountered when refreshing the cache. 
+    * `serve_while_stale`: (Beta only) Serve existing content from the cache (if available) when revalidating content with the origin, or when an error is encountered when refreshing the cache.
 
   * `connection_draining`: Settings for connection draining
 
@@ -154,7 +154,7 @@ Properties that can be accessed from the `google_compute_region_backend_service`
 
   * `fingerprint`: Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking.
 
-  * `health_checks`: The set of URLs to HealthCheck resources for health checking this RegionBackendService. Currently at most one health check can be specified.   A health check must be specified unless the backend service uses an internet or serverless NEG as a backend.
+  * `health_checks`: The set of URLs to HealthCheck resources for health checking this RegionBackendService. Currently at most one health check can be specified.  A health check must be specified unless the backend service uses an internet or serverless NEG as a backend.
 
   * `id`: The unique identifier for the resource.
 
