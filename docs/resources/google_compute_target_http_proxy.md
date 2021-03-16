@@ -37,6 +37,8 @@ Properties that can be accessed from the `google_compute_target_http_proxy` reso
 
   * `url_map`: A reference to the UrlMap resource that defines the mapping from URL to the BackendService.
 
+  * `proxy_bind`: This field only applies when the forwarding rule that references this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+
 
 ## GCP Permissions
 

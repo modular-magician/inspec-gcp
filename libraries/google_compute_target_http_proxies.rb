@@ -28,6 +28,7 @@ class ComputeTargetHttpProxys < GcpResourceBase
   filter_table_config.add(:ids, field: :id)
   filter_table_config.add(:names, field: :name)
   filter_table_config.add(:url_maps, field: :url_map)
+  filter_table_config.add(:proxy_binds, field: :proxy_bind)
 
   filter_table_config.connect(self, :table)
 
@@ -72,6 +73,7 @@ class ComputeTargetHttpProxys < GcpResourceBase
       'id' => ->(obj) { return :id, obj['id'] },
       'name' => ->(obj) { return :name, obj['name'] },
       'urlMap' => ->(obj) { return :url_map, obj['urlMap'] },
+      'proxyBind' => ->(obj) { return :proxy_bind, obj['proxyBind'] },
     }
   end
 

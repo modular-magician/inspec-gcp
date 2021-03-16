@@ -28,6 +28,7 @@ See [google_compute_target_tcp_proxy.md](google_compute_target_tcp_proxy.md) for
   * `names`: an array of `google_compute_target_tcp_proxy` name
   * `proxy_headers`: an array of `google_compute_target_tcp_proxy` proxy_header
   * `services`: an array of `google_compute_target_tcp_proxy` service
+  * `proxy_binds`: an array of `google_compute_target_tcp_proxy` proxy_bind
 
 ## Filter Criteria
 This resource supports all of the above properties as filter criteria, which can be used

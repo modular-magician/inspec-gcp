@@ -28,6 +28,7 @@ class ComputeTargetTcpProxy < GcpResourceBase
   attr_reader :name
   attr_reader :proxy_header
   attr_reader :service
+  attr_reader :proxy_bind
 
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
@@ -43,6 +44,7 @@ class ComputeTargetTcpProxy < GcpResourceBase
     @name = @fetched['name']
     @proxy_header = @fetched['proxyHeader']
     @service = @fetched['service']
+    @proxy_bind = @fetched['proxyBind']
   end
 
   # Handles parsing RFC3339 time string

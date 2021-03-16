@@ -29,6 +29,7 @@ class ComputeTargetTcpProxys < GcpResourceBase
   filter_table_config.add(:names, field: :name)
   filter_table_config.add(:proxy_headers, field: :proxy_header)
   filter_table_config.add(:services, field: :service)
+  filter_table_config.add(:proxy_binds, field: :proxy_bind)
 
   filter_table_config.connect(self, :table)
 
@@ -74,6 +75,7 @@ class ComputeTargetTcpProxys < GcpResourceBase
       'name' => ->(obj) { return :name, obj['name'] },
       'proxyHeader' => ->(obj) { return :proxy_header, obj['proxyHeader'] },
       'service' => ->(obj) { return :service, obj['service'] },
+      'proxyBind' => ->(obj) { return :proxy_bind, obj['proxyBind'] },
     }
   end
 

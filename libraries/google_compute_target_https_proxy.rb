@@ -30,6 +30,7 @@ class ComputeTargetHttpsProxy < GcpResourceBase
   attr_reader :ssl_certificates
   attr_reader :ssl_policy
   attr_reader :url_map
+  attr_reader :proxy_bind
 
   def initialize(params)
     super(params.merge({ use_http_transport: true }))
@@ -47,6 +48,7 @@ class ComputeTargetHttpsProxy < GcpResourceBase
     @ssl_certificates = @fetched['sslCertificates']
     @ssl_policy = @fetched['sslPolicy']
     @url_map = @fetched['urlMap']
+    @proxy_bind = @fetched['proxyBind']
   end
 
   # Handles parsing RFC3339 time string

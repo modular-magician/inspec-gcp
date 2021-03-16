@@ -31,6 +31,7 @@ class ComputeTargetHttpsProxys < GcpResourceBase
   filter_table_config.add(:ssl_certificates, field: :ssl_certificates)
   filter_table_config.add(:ssl_policies, field: :ssl_policy)
   filter_table_config.add(:url_maps, field: :url_map)
+  filter_table_config.add(:proxy_binds, field: :proxy_bind)
 
   filter_table_config.connect(self, :table)
 
@@ -78,6 +79,7 @@ class ComputeTargetHttpsProxys < GcpResourceBase
       'sslCertificates' => ->(obj) { return :ssl_certificates, obj['sslCertificates'] },
       'sslPolicy' => ->(obj) { return :ssl_policy, obj['sslPolicy'] },
       'urlMap' => ->(obj) { return :url_map, obj['urlMap'] },
+      'proxyBind' => ->(obj) { return :proxy_bind, obj['proxyBind'] },
     }
   end
 

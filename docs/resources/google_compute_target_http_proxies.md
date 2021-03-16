@@ -27,6 +27,7 @@ See [google_compute_target_http_proxy.md](google_compute_target_http_proxy.md) f
   * `ids`: an array of `google_compute_target_http_proxy` id
   * `names`: an array of `google_compute_target_http_proxy` name
   * `url_maps`: an array of `google_compute_target_http_proxy` url_map
+  * `proxy_binds`: an array of `google_compute_target_http_proxy` proxy_bind
 
 ## Filter Criteria
 This resource supports all of the above properties as filter criteria, which can be used

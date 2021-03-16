@@ -30,6 +30,7 @@ See [google_compute_target_https_proxy.md](google_compute_target_https_proxy.md)
   * `ssl_certificates`: an array of `google_compute_target_https_proxy` ssl_certificates
   * `ssl_policies`: an array of `google_compute_target_https_proxy` ssl_policy
   * `url_maps`: an array of `google_compute_target_https_proxy` url_map
+  * `proxy_binds`: an array of `google_compute_target_https_proxy` proxy_bind
 
 ## Filter Criteria
 This resource supports all of the above properties as filter criteria, which can be used

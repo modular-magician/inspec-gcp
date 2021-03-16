@@ -42,6 +42,8 @@ Properties that can be accessed from the `google_compute_target_tcp_proxy` resou
 
   * `service`: A reference to the BackendService resource.
 
+  * `proxy_bind`: This field only applies when the forwarding rule that references this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+
 
 ## GCP Permissions
 
