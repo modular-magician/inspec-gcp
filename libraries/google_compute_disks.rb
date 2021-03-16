@@ -40,6 +40,7 @@ class ComputeDisks < GcpResourceBase
   filter_table_config.add(:source_images, field: :source_image)
   filter_table_config.add(:resource_policies, field: :resource_policies)
   filter_table_config.add(:multi_writers, field: :multi_writer)
+  filter_table_config.add(:provisioned_iops, field: :provisioned_iops)
   filter_table_config.add(:zones, field: :zone)
   filter_table_config.add(:source_image_encryption_keys, field: :source_image_encryption_key)
   filter_table_config.add(:source_image_ids, field: :source_image_id)
@@ -103,6 +104,7 @@ class ComputeDisks < GcpResourceBase
       'sourceImage' => ->(obj) { return :source_image, obj['sourceImage'] },
       'resourcePolicies' => ->(obj) { return :resource_policies, obj['resourcePolicies'] },
       'multiWriter' => ->(obj) { return :multi_writer, obj['multiWriter'] },
+      'provisionedIops' => ->(obj) { return :provisioned_iops, obj['provisionedIops'] },
       'zone' => ->(obj) { return :zone, obj['zone'] },
       'sourceImageEncryptionKey' => ->(obj) { return :source_image_encryption_key, GoogleInSpec::Compute::Property::DiskSourceImageEncryptionKey.new(obj['sourceImageEncryptionKey'], to_s) },
       'sourceImageId' => ->(obj) { return :source_image_id, obj['sourceImageId'] },

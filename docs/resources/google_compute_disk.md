@@ -76,6 +76,8 @@ Properties that can be accessed from the `google_compute_disk` resource:
 
   * `multi_writer`: (Beta only) Indicates whether or not the disk can be read/write attached to more than one instance.
 
+  * `provisioned_iops`: (Beta only) Indicates how many IOPS must be provisioned for the disk.
+
   * `zone`: A reference to the zone where the disk resides.
 
   * `source_image_encryption_key`: The customer-supplied encryption key of the source image. Required if the source image is protected by a customer-supplied encryption key.

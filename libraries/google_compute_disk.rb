@@ -42,6 +42,7 @@ class ComputeDisk < GcpResourceBase
   attr_reader :source_image
   attr_reader :resource_policies
   attr_reader :multi_writer
+  attr_reader :provisioned_iops
   attr_reader :zone
   attr_reader :source_image_encryption_key
   attr_reader :source_image_id
@@ -75,6 +76,7 @@ class ComputeDisk < GcpResourceBase
     @source_image = @fetched['sourceImage']
     @resource_policies = @fetched['resourcePolicies']
     @multi_writer = @fetched['multiWriter']
+    @provisioned_iops = @fetched['provisionedIops']
     @zone = @fetched['zone']
     @source_image_encryption_key = GoogleInSpec::Compute::Property::DiskSourceImageEncryptionKey.new(@fetched['sourceImageEncryptionKey'], to_s)
     @source_image_id = @fetched['sourceImageId']
